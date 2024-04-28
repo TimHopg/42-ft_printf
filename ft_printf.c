@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thopgood <thopgood@student.42.fr>          +#+  +:+       +#+        */
+/*   By: timhopgood <timhopgood@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 18:28:33 by thopgood          #+#    #+#             */
-/*   Updated: 2024/04/18 17:49:27 by thopgood         ###   ########.fr       */
+/*   Updated: 2024/04/28 20:51:38 by timhopgood       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_print_format(char specifier, va_list *args)
+static int	ft_format_specifier(char specifier, va_list *args)
 {
 	if (specifier == 'c')
 		return (ft_printchar(va_arg(*args, int)));
@@ -32,19 +32,17 @@ static int	ft_print_format(char specifier, va_list *args)
 		return (-1);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_process_format(const char *format, va_list *args)
 {
-	int		return_length;
-	int		temp_length;
-	va_list	args;
+	int	return_length;
+	int	temp_length;
 
 	return_length = 0;
-	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			temp_length = ft_print_format(*(++format), &args);
+			temp_length = ft_format_specifier(*(++format), args);
 			if (temp_length == -1)
 				return (-1);
 			return_length += temp_length;
@@ -57,6 +55,18 @@ int	ft_printf(const char *format, ...)
 		}
 		++format;
 	}
+	return (return_length);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	int		return_length;
+	va_list	args;
+
+	if (format == NULL)
+		return (-1);
+	return_length = ft_process_format(format, &args);
+	va_start(args, format);
 	va_end(args);
 	return (return_length);
 }
