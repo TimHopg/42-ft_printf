@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: timhopgood <timhopgood@student.42.fr>      +#+  +:+       +#+        */
+/*   By: thopgood <thopgood@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 18:28:33 by thopgood          #+#    #+#             */
-/*   Updated: 2024/04/28 20:51:38 by timhopgood       ###   ########.fr       */
+/*   Updated: 2024/06/15 00:18:58 by thopgood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
