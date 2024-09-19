@@ -1,5 +1,7 @@
 # 42-ftprintf
 
+![ft_printf grade](./ft_printf_grade.png)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
