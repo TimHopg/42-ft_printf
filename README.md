@@ -1,4 +1,4 @@
-# 42-ftprintf
+# 42-ft_printf
 
 ![ft_printf grade](./ft_printf_grade.png)
 
